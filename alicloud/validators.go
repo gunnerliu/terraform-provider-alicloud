@@ -671,3 +671,36 @@ func ValidateRFC3339TimeString(allowEmpty bool) schema.SchemaValidateFunc {
 		return
 	}
 }
+
+type ramPolicyDocument struct {
+	Version   string                       `json:"Version"`
+	Statement []ramPolicyDocumentStatement `json:"Statement"`
+}
+
+type ramPolicyDocumentStatement struct {
+	Action   []string `json:"Action"`
+	Effect   string   `json:"Effect"`
+	Resource []string `json:"Resource"`
+}
+
+// ValidateRFC3339TimeString is a ValidateFunc that ensures a RAM policy is valied
+func ValidateRamPolicyDocument() schema.SchemaValidateFunc {
+	return func(i interface{}, k string) (s []string, es []error) {
+		warnings, errors := validation.StringIsJSON(i, k)
+		if len(warnings) > 0 {
+			s = append(s, warnings...)
+		}
+		if len(errors) > 0 {
+			es = append(es, errors...)
+		}
+
+		if _, err := time.Parse(time.RFC3339, v); err != nil {
+			if skipResourceSchemaValidation() {
+				s = append(s, fmt.Sprintf("%q: invalid RFC3339 timestamp", k))
+			} else {
+				es = append(es, fmt.Errorf("%q: invalid RFC3339 timestamp %s", k, skipResourceSchemaValidationWarning))
+			}
+		}
+		return
+	}
+}
