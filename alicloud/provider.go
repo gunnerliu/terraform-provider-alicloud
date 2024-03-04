@@ -1671,6 +1671,7 @@ func Provider() terraform.ResourceProvider {
 			"alicloud_arms_prometheus":                                       resourceAlicloudArmsPrometheus(),
 			"alicloud_oos_default_patch_baseline":                            resourceAlicloudOosDefaultPatchBaseline(),
 			"alicloud_ocean_base_instance":                                   resourceAliCloudOceanBaseInstance(),
+			"alicloud_ocean_tenant":                                          resourceAliCloudOceanTenant(),
 			"alicloud_chatbot_publish_task":                                  resourceAlicloudChatbotPublishTask(),
 			"alicloud_arms_integration_exporter":                             resourceAlicloudArmsIntegrationExporter(),
 			"alicloud_service_catalog_portfolio":                             resourceAlicloudServiceCatalogPortfolio(),
