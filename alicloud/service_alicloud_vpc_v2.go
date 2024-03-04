@@ -9,7 +9,7 @@ import (
 	"github.com/PaesslerAG/jsonpath"
 	rpc "github.com/alibabacloud-go/tea-rpc/client"
 	util "github.com/alibabacloud-go/tea-utils/service"
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/tidwall/sjson"

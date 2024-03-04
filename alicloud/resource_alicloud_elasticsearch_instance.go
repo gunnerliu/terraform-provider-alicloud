@@ -13,7 +13,7 @@ import (
 
 	"github.com/denverdino/aliyungo/common"
 
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 

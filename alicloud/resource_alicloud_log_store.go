@@ -12,7 +12,7 @@ import (
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 	sls "github.com/aliyun/aliyun-log-go-sdk"
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )

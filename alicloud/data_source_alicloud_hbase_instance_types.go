@@ -7,7 +7,7 @@ import (
 
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/hbase"
 
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )

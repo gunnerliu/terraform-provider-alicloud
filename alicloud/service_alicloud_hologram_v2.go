@@ -7,7 +7,7 @@ import (
 	"github.com/PaesslerAG/jsonpath"
 	roa "github.com/alibabacloud-go/tea-roa/client"
 	util "github.com/alibabacloud-go/tea-utils/service"
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )

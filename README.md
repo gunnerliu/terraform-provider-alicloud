@@ -26,7 +26,7 @@ Requirements
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/aliyun/terraform-provider-alicloud`
+Clone repository to: `$GOPATH/src/github.com/gunnerliu/terraform-provider-alicloud`
 
 ```sh
 $ mkdir -p $GOPATH/src/github.com/aliyun; cd $GOPATH/src/github.com/aliyun
@@ -36,7 +36,7 @@ $ git clone git@github.com:aliyun/terraform-provider-alicloud
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/aliyun/terraform-provider-alicloud
+$ cd $GOPATH/src/github.com/gunnerliu/terraform-provider-alicloud
 $ make build
 ```
 
@@ -80,7 +80,7 @@ $ make testacc
 Before making a release, the resources and data sources are tested automatically with acceptance tests (the tests are located in the alicloud/*_test.go files).
 You can run them by entering the following instructions in a terminal:
 ```
-cd $GOPATH/src/github.com/aliyun/terraform-provider-alicloud
+cd $GOPATH/src/github.com/gunnerliu/terraform-provider-alicloud
 export ALICLOUD_ACCESS_KEY=xxx
 export ALICLOUD_SECRET_KEY=xxx
 export ALICLOUD_REGION=xxx

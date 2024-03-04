@@ -28,7 +28,7 @@ popd
 
 echo "Building goreleaser finished."
 
-pushd src/github.com/aliyun/terraform-provider-alicloud
+pushd src/github.com/gunnerliu/terraform-provider-alicloud
 
 # update the changelog
 # 更新 Changelog 总共有一部分：

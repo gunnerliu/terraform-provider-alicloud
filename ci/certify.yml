@@ -63,7 +63,7 @@ resources:
   - name: terraform-provider-alicloud
     type: git
     source:
-      uri: https://github.com/aliyun/terraform-provider-alicloud.git
+      uri: https://github.com/gunnerliu/terraform-provider-alicloud.git
       branch: master
       paths:
         - alicloud/*

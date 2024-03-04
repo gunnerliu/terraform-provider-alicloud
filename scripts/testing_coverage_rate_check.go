@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aliyun/terraform-provider-alicloud/alicloud"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	log "github.com/sirupsen/logrus"

@@ -10,7 +10,7 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/vpc"
-	"github.com/aliyun/terraform-provider-alicloud/alicloud/connectivity"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/denverdino/aliyungo/common"
 	"github.com/denverdino/aliyungo/cs"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
