@@ -1,4 +1,4 @@
-module github.com/aliyun/terraform-provider-alicloud
+module github.com/gunnerliu/terraform-provider-alicloud
 
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
