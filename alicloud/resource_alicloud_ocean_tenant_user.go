@@ -198,7 +198,9 @@ func resourceAliCloudOceanBaseTenantUserUpdate(d *schema.ResourceData, meta inte
 }
 
 func resourceAliCloudOceanTenantUserDelete(d *schema.ResourceData, meta interface{}) error {
-
+	if true {
+		return nil
+	}
 	client := meta.(*connectivity.AliyunClient)
 	action := "DeleteTenantUsers"
 	var request map[string]interface{}
