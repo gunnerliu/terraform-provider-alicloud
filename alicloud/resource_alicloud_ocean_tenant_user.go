@@ -126,7 +126,7 @@ func resourceAliCloudOceanTenantUserRead(d *schema.ResourceData, meta interface{
 	client := meta.(*connectivity.AliyunClient)
 	oceanServiceTenantUser := OceanServiceTenantUser{client}
 
-	objectRaw, err := oceanServiceTenantUser.DescribeOceanTenantUser(d.Get("instance_id").(string), d.Id())
+	objectRaw, err := oceanServiceTenantUser.DescribeOceanTenantUser(d.Get("tenant_id").(string), d.Id())
 	if err != nil {
 		if !d.IsNewResource() && NotFoundError(err) {
 			log.Printf("[DEBUG] Resource alicloud_ocean_tenant_user DescribeTenantUser Failed!!! %s", err)

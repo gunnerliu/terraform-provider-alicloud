@@ -18,7 +18,7 @@ func (s *OceanServiceDatabase) DescribeOceanDatabase(tenantId string, instanceId
 	var request map[string]interface{}
 	var response map[string]interface{}
 	var query map[string]interface{}
-	action := "DescribeTenantUsers"
+	action := "DescribeDatabases"
 	conn, err := client.NewOceanbaseClient()
 	if err != nil {
 		return object, WrapError(err)
@@ -48,18 +48,18 @@ func (s *OceanServiceDatabase) DescribeOceanDatabase(tenantId string, instanceId
 
 	if err != nil {
 		if IsExpectedErrors(err, []string{"IllegalOperation.Resource", "UnknownError"}) {
-			return object, WrapErrorf(Error(GetNotFoundMessage("Database", databaseName)), NotFoundMsg, response)
+			return object, WrapErrorf(Error(GetNotFoundMessage("Database", tenantId+"-"+databaseName)), NotFoundMsg, response)
 		}
-		return object, WrapErrorf(err, DefaultErrorMsg, databaseName, action, AlibabaCloudSdkGoERROR)
+		return object, WrapErrorf(err, DefaultErrorMsg, tenantId+"-"+databaseName, action, AlibabaCloudSdkGoERROR)
 	}
 
 	v, err := jsonpath.Get("$.Databases[*]", response)
 	if err != nil {
-		return object, WrapErrorf(err, FailedGetAttributeMsg, databaseName, "$.Databases[*]", response)
+		return object, WrapErrorf(err, FailedGetAttributeMsg, tenantId+"-"+databaseName, "$.Databases[*]", response)
 	}
 
 	if len(v.([]interface{})) == 0 {
-		return object, WrapErrorf(Error(GetNotFoundMessage("Database", databaseName)), NotFoundMsg, response)
+		return object, WrapErrorf(Error(GetNotFoundMessage("Database", tenantId+"-"+databaseName)), NotFoundMsg, response)
 	}
 
 	return v.([]interface{})[0].(map[string]interface{}), nil

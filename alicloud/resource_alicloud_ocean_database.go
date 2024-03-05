@@ -112,7 +112,7 @@ func resourceAliCloudOceanDatabaseRead(d *schema.ResourceData, meta interface{})
 	client := meta.(*connectivity.AliyunClient)
 	oceanServiceDatabase := OceanServiceDatabase{client}
 
-	objectRaw, err := oceanServiceDatabase.DescribeOceanDatabase(d.Get("instance_id").(string), d.Get("tenant_id").(string), d.Id())
+	objectRaw, err := oceanServiceDatabase.DescribeOceanDatabase(d.Get("tenant_id").(string), d.Get("instance_id").(string), d.Id())
 	if err != nil {
 		if !d.IsNewResource() && NotFoundError(err) {
 			log.Printf("[DEBUG] Resource alicloud_ocean_database DescribeDatabase Failed!!! %s", err)
