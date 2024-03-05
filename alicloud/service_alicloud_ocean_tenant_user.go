@@ -47,14 +47,14 @@ func (s *OceanServiceTenantUser) DescribeOceanTenantUser(tenantId string, userNa
 
 	if err != nil {
 		if IsExpectedErrors(err, []string{"IllegalOperation.Resource", "UnknownError"}) {
-			return object, WrapErrorf(Error(GetNotFoundMessage("TenantUser", tenantId)), NotFoundMsg, response)
+			return object, WrapErrorf(Error(GetNotFoundMessage("TenantUser", userName)), NotFoundMsg, response)
 		}
-		return object, WrapErrorf(err, DefaultErrorMsg, tenantId, action, AlibabaCloudSdkGoERROR)
+		return object, WrapErrorf(err, DefaultErrorMsg, userName, action, AlibabaCloudSdkGoERROR)
 	}
 
 	v, err := jsonpath.Get("$.TenantUsers[*]", response)
 	if err != nil {
-		return object, WrapErrorf(err, FailedGetAttributeMsg, tenantId, "$.TenantUsers[*]", response)
+		return object, WrapErrorf(err, FailedGetAttributeMsg, userName, "$.TenantUsers[*]", response)
 	}
 
 	if len(v.([]interface{})) == 0 {
