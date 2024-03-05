@@ -47,9 +47,9 @@ func (s *OceanServiceTenantUser) DescribeOceanTenantUser(tenantId string, userNa
 
 	if err != nil {
 		if IsExpectedErrors(err, []string{"IllegalOperation.Resource", "UnknownError"}) {
-			return object, WrapErrorf(Error(GetNotFoundMessage("TenantUser", tenantId+"-"+userName)), NotFoundMsg, response)
+			return object, WrapErrorf(Error(GetNotFoundMessage("TenantUser", userName)), NotFoundMsg, response)
 		}
-		return object, WrapErrorf(err, DefaultErrorMsg, tenantId+"-"+userName, action, AlibabaCloudSdkGoERROR)
+		return object, WrapErrorf(err, DefaultErrorMsg, userName, action, AlibabaCloudSdkGoERROR)
 	}
 
 	v, err := jsonpath.Get("$.TenantUsers[*]", response)
@@ -58,7 +58,7 @@ func (s *OceanServiceTenantUser) DescribeOceanTenantUser(tenantId string, userNa
 	}
 
 	if len(v.([]interface{})) == 0 {
-		return make(map[string]interface{}), nil
+		return object, WrapErrorf(Error(GetNotFoundMessage("TenantUsers", userName)), NotFoundMsg, response)
 	}
 
 	return v.([]interface{})[0].(map[string]interface{}), nil
