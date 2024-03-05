@@ -18,8 +18,8 @@ import (
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/sts"
 
-	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/google/uuid"
+	"github.com/gunnerliu/terraform-provider-alicloud/alicloud/connectivity"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/hashcode"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/mutexkv"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -1672,6 +1672,8 @@ func Provider() terraform.ResourceProvider {
 			"alicloud_oos_default_patch_baseline":                            resourceAlicloudOosDefaultPatchBaseline(),
 			"alicloud_ocean_base_instance":                                   resourceAliCloudOceanBaseInstance(),
 			"alicloud_ocean_tenant":                                          resourceAliCloudOceanTenant(),
+			"alicloud_ocean_tenant_user":                                     resourceAliCloudOceanTenantUser(),
+			"alicloud_ocean_database":                                        resourceAliCloudOceanDatabase(),
 			"alicloud_chatbot_publish_task":                                  resourceAlicloudChatbotPublishTask(),
 			"alicloud_arms_integration_exporter":                             resourceAlicloudArmsIntegrationExporter(),
 			"alicloud_service_catalog_portfolio":                             resourceAlicloudServiceCatalogPortfolio(),
