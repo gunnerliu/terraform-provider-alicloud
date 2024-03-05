@@ -59,7 +59,7 @@ func (s *OceanServiceDatabase) DescribeOceanDatabase(tenantId string, instanceId
 	}
 
 	if len(v.([]interface{})) == 0 {
-		return object, WrapErrorf(Error(GetNotFoundMessage("Database", tenantId+"-"+databaseName)), NotFoundMsg, response)
+		return make(map[string]interface{}), nil
 	}
 
 	return v.([]interface{})[0].(map[string]interface{}), nil

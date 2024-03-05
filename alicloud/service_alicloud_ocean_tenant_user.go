@@ -58,7 +58,7 @@ func (s *OceanServiceTenantUser) DescribeOceanTenantUser(tenantId string, userNa
 	}
 
 	if len(v.([]interface{})) == 0 {
-		return object, WrapErrorf(Error(GetNotFoundMessage("TenantUsers", tenantId+"-"+userName)), NotFoundMsg, response)
+		return make(map[string]interface{}), nil
 	}
 
 	return v.([]interface{})[0].(map[string]interface{}), nil
