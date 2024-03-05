@@ -32,11 +32,11 @@ func resourceAliCloudOceanDatabase() *schema.Resource {
 				Required: true,
 			},
 			"tenant_id": {
-				Type:     schema.TypeInt,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"encoding": {
-				Type:     schema.TypeInt,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"collation": {

@@ -33,11 +33,11 @@ func resourceAliCloudOceanTenantUser() *schema.Resource {
 				Required: true,
 			},
 			"tenant_id": {
-				Type:     schema.TypeInt,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"user_name": {
-				Type:     schema.TypeInt,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"user_type": {
