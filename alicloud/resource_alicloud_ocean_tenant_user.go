@@ -193,6 +193,48 @@ func resourceAliCloudOceanBaseTenantUserUpdate(d *schema.ResourceData, meta inte
 		}
 	}
 
+	update = false
+	action = "ModifyTenantUserRoles"
+	conn, err = client.NewOceanbaseClient()
+	if err != nil {
+		return WrapError(err)
+	}
+	request = make(map[string]interface{})
+	query = make(map[string]interface{})
+	request["UserName"] = d.Id()
+	request["TenantId"] = d.Get("tenant_id")
+	request["InstanceId"] = d.Get("instance_id")
+
+	if !d.IsNewResource() {
+		if d.HasChange("roles") {
+			update = true
+			request["UserRole"] = d.Get("roles")
+			d.SetPartial("roles")
+		}
+
+		if update {
+			runtime := util.RuntimeOptions{}
+			runtime.SetAutoretry(true)
+			wait := incrementalWait(3*time.Second, 5*time.Second)
+			err = resource.Retry(d.Timeout(schema.TimeoutUpdate), func() *resource.RetryError {
+				response, err = conn.DoRequest(StringPointer(action), nil, StringPointer("POST"), StringPointer("2019-09-01"), StringPointer("AK"), query, request, &runtime)
+
+				if err != nil {
+					if NeedRetry(err) {
+						wait()
+						return resource.RetryableError(err)
+					}
+					return resource.NonRetryableError(err)
+				}
+				addDebug(action, response, request)
+				return nil
+			})
+			if err != nil {
+				return WrapErrorf(err, DefaultErrorMsg, d.Id(), action, AlibabaCloudSdkGoERROR)
+			}
+		}
+	}
+
 	d.Partial(false)
 	return resourceAliCloudOceanTenantUserRead(d, meta)
 }
